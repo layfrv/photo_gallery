@@ -1,10 +1,10 @@
 import { React, useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
-import './form.css';
-import { ReactComponent as eyeClosed } from '../assets/eye-closed.svg';
-import { ReactComponent as eyeOpen } from '../assets/eye-open.svg';
+import './form.scss';
+import { ReactComponent as EyeClosed } from '../assets/eye-closed.svg';
+import { ReactComponent as EyeOpen } from '../assets/eye-open.svg';
 
-export const Form = ({ title, handleClick }) => {
+export const Form = ({ title, handleClick, afterForm }) => {
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
   const [passwordType, setPasswordType] = useState('password');
@@ -66,47 +66,58 @@ export const Form = ({ title, handleClick }) => {
     }
   };
 
+  const handleSubmit = (e) => {
+    e.preventDefault();
+  };
+
+  const afterFormHreh = `/${afterForm}`;
+
   return (
     <>
-      <form className='form'>
-        <h1>Sign Up</h1>
-        <div className='email_input'>
+      <form className="form" onSubmit={handleSubmit}>
+        <h1>{title}</h1>
+        <div className="email_input">
           <input
             onChange={(e) => emailHandler(e)}
             value={email}
-            className='email'
             onBlur={blurHandler}
-            name='email'
-            type='text'
-            placeholder='Enter your email'
+            name="email"
+            type="text"
+            placeholder="Enter your email"
           />
         </div>
-        {emailDirty && emailError && <div className='errorMsg'>{emailError}</div>}
-        <div className='password_input'>
+        {emailDirty && emailError && <div className="errorMsg">{emailError}</div>}
+        <div className="password_input">
           <input
             onChange={(e) => passwordHandler(e)}
             value={password}
             maxLength={8}
-            className='password'
             onBlur={blurHandler}
-            name='password'
+            name="password"
             type={passwordType}
-            placeholder='Enter password (4 - 8 symbols)'
+            placeholder="Enter password (4 - 8 symbols)"
           />
-          <div className='eye_icon_container'>
+          <div className="eye_icon_container">
             {passwordType === 'password' ? (
-              <img className='eye_icon' src={eyeClosed} alt='eye' onClick={passwordToggle} />
+              <EyeClosed className="eye_icon" onClick={passwordToggle} />
             ) : (
-              <img className='eye_icon' src={eyeOpen} alt='eye' onClick={passwordToggle} />
+              <EyeOpen className="eye_icon" onClick={passwordToggle} />
             )}
           </div>
         </div>
-        {passwordDirty && passwordError && <div className='errorMsg'>{passwordError}</div>}
+        {passwordDirty && passwordError && <div className="errorMsg">{passwordError}</div>}
 
-        <button disabled={!formValid} className='sbmtBtn' type='submit' onClick={handleClick}>
+        <button
+          disabled={!formValid}
+          className="sbmtBtn"
+          type="submit"
+          onClick={() => handleClick(email, password)}>
           {title}
         </button>
       </form>
+      <p className="after-form">
+        if you don`t have an account <a href={afterFormHreh}>{afterForm}</a>
+      </p>
     </>
   );
 };

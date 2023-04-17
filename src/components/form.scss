@@ -1,0 +1,115 @@
+* {
+  box-sizing: border-box;
+}
+
+.errorMsg {
+  position: absolute;
+  margin-top: 9px;
+  color: red;
+  text-align: left;
+  margin-left: 55px;
+  font-size: 11px;
+}
+
+.form {
+  text-align: center;
+  margin: 100px auto 0;
+  padding-top: 10px;
+  padding-bottom: 40px;
+  box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
+  background-color: white;
+  border-radius: 20px;
+  width: 500px;
+  height: 400px;
+}
+
+.email_input {
+  margin-top: 25px;
+
+  input {
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    border: #e2e2e2 1px solid;
+    border-radius: 8px;
+    width: 400px;
+    height: 48px;
+    padding-left: 15px;
+    outline: none;
+
+    font-size: 16px;
+
+    transition: all 0.15s ease-in-out;
+
+    &:focus {
+      border: 1px solid #343434;
+    }
+  }
+}
+
+.password_input {
+  position: relative;
+  margin-top: 35px;
+
+  input {
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    border: #e2e2e2 1px solid;
+    border-radius: 8px;
+    width: 400px;
+    height: 48px;
+    padding-left: 15px;
+        
+    font-size: 16px;
+
+    outline: none;
+
+    transition: all 0.15s ease-in-out;
+
+    &:focus {
+      border: 1px solid #343434;
+    }
+  }
+}
+
+.eye_icon_container {
+  position: absolute;
+  right: 65px;
+  bottom: 10px;
+}
+
+.eye_icon {
+  opacity: 50%;
+
+  width: 20px;
+  height: 20px;
+}
+
+.sbmtBtn {
+  margin-top: 50px;
+  width: 200px;
+  height: 48px;
+  border: none;
+  border-radius: 10px;
+  background-color: rgb(43, 43, 43);
+  color: white;
+  font-weight: bold;
+
+  &:hover {
+    background-color: rgb(33, 33, 33);
+  }
+
+  &:active {
+    background-color: rgb(0, 0, 0);
+  }
+
+  &:disabled {
+    background-color: rgb(140, 140, 140);
+  }
+}
+
+.after-form {
+  margin: 25px auto;
+  text-align: center;
+}

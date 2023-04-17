@@ -6,7 +6,7 @@ export const WelcomePage = () => {
     <div>
       <h1>Welcome to your photo gallery</h1>
       <p>
-        please, login <Navigate to='./login ' />{' '}
+        If you have an account, <a href="./login">Login</a> or <a href="/register">Authorize</a>
       </p>
     </div>
   );
